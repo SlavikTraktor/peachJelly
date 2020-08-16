@@ -1787,7 +1787,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1171440677
+--- !u!1001 &1185192287
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1797,12 +1797,12 @@ PrefabInstance:
     - target: {fileID: 7938658112656012336, guid: 622fce12eff6ee644aea8550d177a321,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9395388
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7938658112656012336, guid: 622fce12eff6ee644aea8550d177a321,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.4617686
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7938658112656012336, guid: 622fce12eff6ee644aea8550d177a321,
         type: 3}
@@ -1853,6 +1853,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938658113917435842, guid: 622fce12eff6ee644aea8550d177a321,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938658113917435842, guid: 622fce12eff6ee644aea8550d177a321,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622fce12eff6ee644aea8550d177a321, type: 3}
