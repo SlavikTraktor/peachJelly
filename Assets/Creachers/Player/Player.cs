@@ -5,13 +5,25 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 8f;
-    Rigidbody2D rb;
+    private Rigidbody2D m_Rigidbody2D;
+    private Animator m_Animator;
+    private bool facingRight = true;
 
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Animator = gameObject.GetComponent<Animator>();
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
+    {
+        this.MovePlayer();
+        this.ChooseSide();
+        this.UpdateAnimatorSide();
+    }
+
+    // User functions
+    private void MovePlayer()
     {
         float speedX = 0, speedY = 0;
 
@@ -36,10 +48,44 @@ public class Player : MonoBehaviour
         if (speedX != 0 && speedY != 0)
         {
             float speedXY = Mathf.Sqrt(2) / 2 * moveSpeed;
-            speedX = speedXY * ((speedX > 0)? 1: -1);
-            speedY = speedXY * ((speedY > 0)? 1: -1);
+            speedX = speedXY * ((speedX > 0) ? 1 : -1);
+            speedY = speedXY * ((speedY > 0) ? 1 : -1);
         }
 
         transform.Translate(speedX * Time.deltaTime, speedY * Time.deltaTime, 0);
+    }
+
+    private void ChooseSide()
+    {
+        if (Input.GetKey(KeyCode.A) && facingRight)
+        {
+            this.Flip();
+        }
+        else if (Input.GetKey(KeyCode.D) && !facingRight)
+        {
+            this.Flip();
+        }
+    }
+
+    private void UpdateAnimatorSide()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            m_Animator.SetBool("isSideRun", true);
+        }
+        else
+        {
+            m_Animator.SetBool("isSideRun", false);
+        }
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+
+        Vector3 scale = this.transform.localScale;
+        scale.x = scale.x * -1;
+
+        transform.localScale = scale;
     }
 }
