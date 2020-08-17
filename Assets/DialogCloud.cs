@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class DialogCloud : MonoBehaviour
 {
-    public Animator[] clouds;
-
+    public Animator m_Animator;
+    private void Start()
+    {
+        m_Animator = gameObject.GetComponentInChildren<Animator>();
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Lol");
         if (other.CompareTag("Player"))
         {
-            foreach (Animator anim in clouds) 
-            {
-anim.SetTrigger("New Trigger");
-             }
+
+            m_Animator.SetTrigger("Trigger");
+
         }
     }
-      public void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            foreach (Animator anim in clouds) 
-            {
-anim.SetTrigger("New Trigger");
-             }
+
+            m_Animator.SetTrigger("Trigger");
+
         }
     }
 }
