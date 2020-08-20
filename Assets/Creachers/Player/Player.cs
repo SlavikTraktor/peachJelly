@@ -70,14 +70,15 @@ public class Player : MonoBehaviour
 
     private void UpdateAnimatorSide()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            m_Animator.SetBool("isSideRun", true);
-        }
-        else
-        {
-            m_Animator.SetBool("isSideRun", false);
-        }
+        bool isSideRun = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+        m_Animator.SetBool("isSideRun", isSideRun);
+
+        bool isBotRun = Input.GetKey(KeyCode.S);
+        m_Animator.SetBool("isBotRun", isBotRun);
+
+        bool isTopRun = Input.GetKey(KeyCode.W);
+        m_Animator.SetBool("isTopRun", isTopRun);
+
     }
 
     private void Flip()
