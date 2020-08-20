@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("Text: ");
         this.MovePlayer();
         this.ChooseSide();
         this.UpdateAnimatorSide();
