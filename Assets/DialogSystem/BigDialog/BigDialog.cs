@@ -9,8 +9,6 @@ public class BigDialog : MonoBehaviour
     private const string TEXT = "Съешь этих мягких французских булочек да выпей чаю.";
 
     private Text m_DialogText;
-
-    private float timeCounter = 0;
     private int letterCounter = 0;
     
     
@@ -20,12 +18,14 @@ public class BigDialog : MonoBehaviour
         // Don't like next line. Unsafety =(
         m_DialogText = GameObject.Find("DialogText").GetComponent<Text>();
         m_DialogText.text = "";
+
+        InvokeRepeating("WriteLetter", 0.2f, ADD_LETTER_TIME);
     }
 
     // Update is called once per frame
     void Update()
     {
-        WriteLetter();
+
     }
 
     public void WriteText(string newText) {
@@ -33,11 +33,9 @@ public class BigDialog : MonoBehaviour
     }
 
     private void WriteLetter() {
-        timeCounter += Time.deltaTime;
-        if(letterCounter < TEXT.Length && timeCounter >= ADD_LETTER_TIME) {
+        if(letterCounter < TEXT.Length) {
             m_DialogText.text = m_DialogText.text + TEXT[letterCounter];
             letterCounter++;
-            timeCounter = 0;
         }
     }
 }
