@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BigDialog : MonoBehaviour
 {
     private const float ADD_LETTER_TIME = 0.03f;
-    private const string TEXT = "Съешь этих мягких французских булочек да выпей чаю.";
+    private string textToWrite = "Съешь этих мягких французских булочек да выпей чаю.";
 
     private Text m_DialogText;
     private int letterCounter = 0;
@@ -29,12 +29,18 @@ public class BigDialog : MonoBehaviour
     }
 
     public void WriteText(string newText) {
+        m_DialogText.text = "";
+        textToWrite = newText;
+        letterCounter = 0;
+    }
 
+    public void onClickNext() {
+        Destroy(gameObject);
     }
 
     private void WriteLetter() {
-        if(letterCounter < TEXT.Length) {
-            m_DialogText.text = m_DialogText.text + TEXT[letterCounter];
+        if(letterCounter < textToWrite.Length) {
+            m_DialogText.text = m_DialogText.text + textToWrite[letterCounter];
             letterCounter++;
         }
     }

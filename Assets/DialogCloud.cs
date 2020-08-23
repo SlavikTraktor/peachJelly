@@ -11,7 +11,6 @@ public class DialogCloud : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Lol");
         if (other.CompareTag("Player"))
         {
 

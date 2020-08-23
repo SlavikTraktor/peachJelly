@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5436677823998981988}
   - component: {fileID: 5436677823998981990}
   - component: {fileID: 5436677823998981989}
+  - component: {fileID: 1718855378086246129}
   m_Layer: 5
   m_Name: DialogText
   m_TagString: Untagged
@@ -77,8 +78,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041A\u0443\u043F\u0430\u0432\u0440\u043F\u0430 \u043F\u0440\u0430\u0432\u0440 
-    \u0440 \u0430\u043F\u0430\u043F\u0432"
+  m_Text: 
+--- !u!114 &1718855378086246129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436677823998981995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0adf860b6b9b3643afc87a837a5190e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5436677824684736111
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +105,7 @@ GameObject:
   - component: {fileID: 5436677824684736104}
   - component: {fileID: 8071183326775331188}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: BigDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
