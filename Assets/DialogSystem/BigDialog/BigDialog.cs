@@ -11,7 +11,6 @@ public class BigDialog : MonoBehaviour
     private Text m_DialogText;
     private int letterCounter = 0;
     
-    
     // Start is called before the first frame update
     void Start()
     {
