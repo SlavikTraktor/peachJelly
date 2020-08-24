@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject bigDialog;
     public float moveSpeed = 8f;
     private Rigidbody2D m_Rigidbody2D;
     private Animator m_Animator;
     private bool facingRight = true;
+
+    private Collider2D radiusNPC;
 
     private void Start()
     {
@@ -20,6 +23,24 @@ public class Player : MonoBehaviour
         this.MovePlayer();
         this.ChooseSide();
         this.UpdateAnimatorSide();
+        this.TryOpenDialog();
+    }
+
+    // Боже, какие же костыли я тут пишу
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("NPC"))
+        {
+            radiusNPC = other;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("NPC"))
+        {
+            radiusNPC = null;
+        }
     }
 
     // User functions
@@ -88,5 +109,13 @@ public class Player : MonoBehaviour
         scale.x = scale.x * -1;
 
         transform.localScale = scale;
+    }
+
+    private void TryOpenDialog()
+    {
+        if (radiusNPC != null && Input.GetKey(KeyCode.E) && GameObject.FindWithTag("BigDialog") == null)
+        {
+            Instantiate(bigDialog);
+        }
     }
 }

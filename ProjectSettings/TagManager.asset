@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Room
+  - NPC
+  - BigDialog
   layers:
   - Default
   - TransparentFX

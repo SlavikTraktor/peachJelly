@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8071183326775331188}
   m_Layer: 5
   m_Name: BigDialog
-  m_TagString: Untagged
+  m_TagString: BigDialog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

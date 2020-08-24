@@ -9,7 +9,7 @@ public class BigDialog : MonoBehaviour
     private string textToWrite = "Съешь этих мягких французских булочек да выпей чаю.";
 
     private Text m_DialogText;
-    private int letterCounter = 0;
+    private int letterCounter;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class BigDialog : MonoBehaviour
         // Don't like next line. Unsafety =(
         m_DialogText = GameObject.Find("DialogText").GetComponent<Text>();
         m_DialogText.text = "";
+        letterCounter = 0;
 
         InvokeRepeating("WriteLetter", 0.2f, ADD_LETTER_TIME);
     }
